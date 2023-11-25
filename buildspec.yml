@@ -1,9 +1,17 @@
-version: 0.2
-
+version: 0.2    
 phases:
-    install:
-        runtime-versions:
-            dotnet: 6.0
-    build:
-        commands:
-            - dotnet build -c Release ./Tailspin.SpaceGame.Web/Tailspin.SpaceGame.Web.csproj
+  install:
+    commands:
+      - curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --channel STS 
+  build:
+    commands:
+      - dotnet build -c Release ./Tailspin.SpaceGame.Web/Tailspin.SpaceGame.Web.csproj
+
+# version: 0.2
+# phases:
+#     install:
+#         runtime-versions:
+#             dotnet: 6.0
+#     build:
+#         commands:
+#             - dotnet build -c Release ./Tailspin.SpaceGame.Web/Tailspin.SpaceGame.Web.csproj
