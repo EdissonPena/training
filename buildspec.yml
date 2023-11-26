@@ -7,3 +7,4 @@ phases:
     commands:
       - dotnet restore ./Tailspin.SpaceGame.Web/Tailspin.SpaceGame.Web.csproj
       - dotnet build -c Release ./Tailspin.SpaceGame.Web/Tailspin.SpaceGame.Web.csproj
+      - dotnet publish -c Release -o ./Release ./Tailspin.SpaceGame.Web/Tailspin.SpaceGame.Web.csproj
