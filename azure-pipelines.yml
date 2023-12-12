@@ -35,3 +35,16 @@ steps:
     publishWebProjects: false
     arguments: '--no-build --configuration Release --output $(Build.ArtifactStagingDirectory)/Release'
     zipAfterPublish: true
+
+- publish: '$(Build.ArtifactStagingDirectory)'
+  artifact: drop
+
+- download: current
+  artifact: drop
+  
+- task: AzureWebApp@1
+  displayName: 'Azure App Service Deploy: website'
+  inputs:
+    azureSubscription: 'training'
+    appName: 'trainingaws'
+    package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
